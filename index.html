@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+    <script>
+		var gui = require('nw.gui');
+		var win = gui.Window.get();
+		win.setAlwaysOnTop(true);
+		
+        function startTime() {
+
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = zeroFillToDoubleDigits(m);
+            s = zeroFillToDoubleDigits(s);
+            document.getElementById("hoursmins").innerHTML = h +":"+ m ;//+ ":" + s;
+			document.getElementById("seconds").innerHTML = s;
+            var t = setTimeout(function(){startTime()},500);
+
+        }
+
+        function zeroFillToDoubleDigits(number) {
+            if(number < 10) {
+                number = "0"+ number;
+            }
+
+            return number;
+        }
+    </script>
+</head>
+<body style="-webkit-app-region: drag;background-color:rgba(0,0,0,0);" onload="startTime()">
+<h1><span id="hoursmins"></span><span id="seconds"></span></h1>
+
+<!--
+We are using node.js <script>
+    var version = process;
+    document.write(process.toString())
+</script>.
+-->
+
+</body>
+</html>

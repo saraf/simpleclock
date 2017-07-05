@@ -1,0 +1,12 @@
+{
+"name": "simpleclock5",
+"version": "0.0.5",
+"main": "index.html",
+  "window": {
+    "frame": false,
+    "toolbar": false,
+    "transparent": true,
+    "show_in_taskbar": false,
+	"always-on-top": true
+  }
+}
